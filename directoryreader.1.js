@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 //declares the folder where the files are being read
- let directory = "C:/Automation/test_invoices";
+ let directory = process.argv[2]|| "C:/Users/zachm/OneDrive/Documents/Test";
 //reads the filenames in the folder
  let files = fs.readdirSync(directory);
 // console.log(files);
