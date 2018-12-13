@@ -23,3 +23,5 @@ for(i=0; i< files.length; i++){
 
 let duplicateFree = loDash.sortedUniq(noExtensions);
 console.log(duplicateFree)
+//this will import an array of array to a certain area of a work sheet
+// XLSX.utils.sheet_add_aoa(<----this is where the batches sheet path goes?---->, duplicateFree, {origin: "I6"});
