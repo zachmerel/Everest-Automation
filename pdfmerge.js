@@ -1,6 +1,8 @@
 var merge = require('easy-pdf-merge');
+let file1 = 'temp v1/142851 3.pdf';
+let file2 = 'temp v1/142851 5.pdf';
 
-merge(['temp v1/142851 3','temp v1/142851 5'],'File testOutput.pdf',function(err){
+merge([file1, file2],'File testOutput.pdf',function(err){
 
     if(err)
     return console.log(err);
