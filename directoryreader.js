@@ -24,12 +24,12 @@ for(i=0; i< files.length; i++){
 
 let duplicateFree = loDash.sortedUniq(noExtensions);
 console.log(duplicateFree);
-var ws = xlsx.utils.aoa_to_sheet([
-    duplicateFree,
-    [1,2,3,4,5,6,7],
-    [2,3,4,5,6,7,8]
-  ]);
-console.log(ws);
+// var ws = xlsx.utils.aoa_to_sheet([
+//     duplicateFree,
+//     [1,2,3,4,5,6,7],
+//     [2,3,4,5,6,7,8]
+//   ]);
+// console.log(ws);
 // XLSX.utils.sheet_add_aoa(ws, [[1,2], [2,3], [3,4]], {origin: "A2"});
 //function to write to batches workbook?
 // XLSX.writeFile(wb, "Batches-Sent-to-RTS-List", write_opts);
