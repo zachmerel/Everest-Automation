@@ -19,7 +19,9 @@
   "dependencies": {
     "easy-pdf-merge": "^0.2.0",
     "file-saver": "^2.0.0",
+    "fs-extra": "^7.0.1",
     "lodash": "^4.17.11",
+    "path": "^0.12.7",
     "xlsx": "^0.14.1"
   },
   "bin": {
