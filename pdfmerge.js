@@ -25,7 +25,7 @@ for (i = 0; i < files.length; i++) {
     //if first 6 characters match in files 1 and 2 ...
     if ((file1.substring(0, 6)) === (file2.substring(0, 6))) {
         //merges two files and renames them
-        merge([file1, file2], (`${filename}.pdf`), (err) => {
+        merge([file2, file1], (`${filename}.pdf`), (err) => {
             if (err)
                 return console.log(err);
             console.log('Successfully merged!');
