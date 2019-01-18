@@ -4,7 +4,7 @@ const loDash = require("lodash");
 
 const xlsx = require("xlsx");
 //declares file path for the folder where the files are being read
- const directory = "K:/MEGA/Daily Request - 30D/temptest1";
+ const directory = "K:/MEGA/Daily Request - 30D";
 //reads the filenames in the folder
  let files = fs.readdirSync(directory);
  //creates array to put edited filenames in
