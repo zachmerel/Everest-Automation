@@ -4,7 +4,9 @@
   "description": "",
   "main": "directoryreader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "merge":"npm pdfmerge.js",
+    "read":"directoryreader.js"
   },
   "repository": {
     "type": "git",

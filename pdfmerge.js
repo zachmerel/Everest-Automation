@@ -18,9 +18,9 @@ let files = fs.readdirSync(directory);
 for (i = 0; i < files.length; i++) {
     filename = (files[i].substring(0, 6))
     file1 = (`${directory}${files[i]}`);
-    console.log("file1", file1);
+    // console.log("file1", file1);
     file2 = (`${directory}${files[i + 1]}`);
-    console.log("file2", file2);
+    // console.log("file2", file2);
 
     //if first 6 characters match in files 1 and 2 ...
     if ((file1.substring(0, 6)) === (file2.substring(0, 6))) {
