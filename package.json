@@ -5,13 +5,8 @@
   "main": "directoryreader.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "reader": "node tempreader.js",
     "merge":"node pdfmerge.js"
-=======
-    "merge":"npm pdfmerge.js",
-    "read":"directoryreader.js"
->>>>>>> 3b1291c5284a063af5e3bb59ac3bc2fca0b0c628
   },
   "repository": {
     "type": "git",
