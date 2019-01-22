@@ -22,8 +22,13 @@ for (i = 0; i < files.length; i++) {
     // console.log("file1", file1);
     file2 = (`${directory}${files[i + 1]}`);
     // console.log("file2", file2);
+<<<<<<< HEAD
     // break;
     // if first 6 characters match in files 1 and 2 ...
+=======
+
+    //if first 6 characters match in files 1 and 2 ...
+>>>>>>> 3b1291c5284a063af5e3bb59ac3bc2fca0b0c628
     if ((file1.substring(0, 6)) === (file2.substring(0, 6))) {
         //merges two files and renames them
         console.log("filename after if ",filename);
