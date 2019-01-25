@@ -16,7 +16,7 @@ const directory = "temp v1/";
 let files = fs.readdirSync(directory);
 
 for (i = 0; i < files.length; i++) {
-    filename = (files[i].substring(0, 6))
+    filename = (files[i+1].substring(0, 6))
     // console.log("filename",filename);
     file1 = (`${directory}${files[i]}`);
     console.log("file1", file1);
@@ -31,7 +31,7 @@ for (i = 0; i < files.length; i++) {
             if (err)
                 return console.log(err);
             console.log('Successfully merged!');
-            console.log("filename after merge ",filename);
+            // console.log("filename after merge ",filename);
             //append content at the end of the file:
             // fs.appendFile((`${filename}.pdf`),'testDestination',  function (err) {
   
