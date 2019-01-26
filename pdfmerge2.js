@@ -1,3 +1,8 @@
+//NOTES
+//create an array of array. search the directory any files that have the same first 6 didgits push them to an array. 
+//need to .chunk the array for every set of duplicates
+//loop through the array of arrays and merge each array into its own pdf using easy pdf merge.
+
 //packages required
 const merge = require('easy-pdf-merge');
 const path = require('path');
@@ -14,26 +19,21 @@ let filename = "";
 const directory = "temp v1/";
 //reads the filenames in the folder
 let files = fs.readdirSync(directory);
-// console.log(files)
-for (i = 0; i < files.length; i++) {
-    file1.push(files[i]);
-    console.log("files[i]",files[i])
-    // console.log("file1", file1)
-    for (j = 0; j < file1.length; j++) {
-        console.log("j loop",file1[j])
-        // console.log("file1 in j loop",file1)
-        // console.log("files[i]".files[i]);
-        // if ((file1[j].substring(0, 6)) === (files[i].substring(0, 6))) {
-            // console.log("this is working")
-            // console.log("file1[j]",file1[j],"files[i]",files[i])
-            // let filename = (files[i].substring(0,6))
-            // console.log("filename",filename);
-            // merge([(`temp v1/${file1[j]}`), (`temp v1/${files[i]}`)], (`${filename}.pdf`), (err) => {
-            //     if (err)
-            //         return console.log(err);
-            //     console.log('Successfully merged!');
-            // });
-        // }
-    };
-
+//creates array to put edited filenames in
+let first6Array = []
+//for loop cycles through the filenames and removes everything except first 6 didgits
+for(i=0; i< files.length; i++){
+   let first6 = files[i].substring(0, 6);
+   first6Array.push(first6);
 };
+console.log(first6Array);
+
+const masterArray = [];
+
+const unique = new Set (first6Array); // Set {"141848", "142851", "143275"}
+unique.forEach(u => {
+  masterArray.push(first6Array.filter(e => e === u));
+});
+console.log(masterArray);
+
+

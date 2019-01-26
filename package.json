@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "reader": "node tempreader.js",
-    "merge":"node pdfmerge.js"
+    "merge":"node pdfmerge.js",
+    "merge2":"node pdfmerge2.js"
   },
   "repository": {
     "type": "git",
