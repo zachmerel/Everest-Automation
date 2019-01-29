@@ -10,13 +10,10 @@ const fs = require("fs");
 const fse = require('fs-extra');
 const loDash = require("lodash");
 
-//declaring files that will be merged
-let file1 = [];
-let file2 = "";
-let filename = "";
+
 
 //declaring the directory that will be read and looped through
-const directory = "temp v1/";
+const directory = "temp 1-2/";
 //reads the filenames in the folder
 let files = fs.readdirSync(directory);
 //creates array to put edited filenames in
@@ -27,39 +24,63 @@ for (i = 0; i < files.length; i++) {
     first6Array.push(first6);
 };
 console.log(first6Array);
-
+//declares masterArray
 const masterArray = [];
 
-const unique = new Set(first6Array); // Set {"141848", "142851", "143275"}
+//finds duplicates in first6Array then puts those duplicates in their own array and pushes to MasterArray.
+const unique = new Set(first6Array); 
 unique.forEach(u => {
     masterArray.push(first6Array.filter(e => e === u));
 });
 console.log(masterArray);
 
+//loops through masterArray to see how many files are in each index. If 3 assign 3,4,5 and directory name , if 2 assign 3,5 and directory name.
 for (i = 0; i < masterArray.length; i++) {
     if (masterArray[i].length === 3) {
-        file1 = `temp v1/${masterArray[i][0]} 3.pdf`;
-        file2 = `temp v1/${masterArray[i][1]} 4.pdf`;
-        file3 = `temp v1/${masterArray[i][2]} 5.pdf`;
+        // 3_4_5();
+        file1 = `${directory}${masterArray[i][0]} 3.pdf`;
+        file2 = `${directory}${masterArray[i][1]} 4.pdf`;
+        file3 = `${directory}${masterArray[i][2]} 5.pdf`;
         merge([file1, file2, file3], (`${masterArray[i][0]}.pdf`), (err) => {
             if (err)
                 return console.log(err);
             console.log('Successfully merged!');
         });
-        // console.log("file1",file1);
-        // console.log("file2",file2);
-        // console.log("file3",file3);
-        // console.log("masterArray[i][0] after template literal", masterArray[i][0])
-        // console.log("masterArray[i][1]", masterArray[i][1])
-        // console.log("masterArray[i][2]", masterArray[i][2])
-        // console.log("the length of this array is 3");
     }
     else if (masterArray[i].length === 2) {
-        console.log("the length of this array is 2");
+        // 3_5();
+        file1 = `${directory}${masterArray[i][0]} 3.pdf`;
+        file2 = `${directory}${masterArray[i][1]} 5.pdf`;
+        merge([file1, file2], (`${masterArray[i][0]}.pdf`), (err) => {
+            if (err)
+                return console.log(err);
+            console.log('Successfully merged!');
+        });
     }
-    else {
-        console.log("back to the drawing board");
-    }
+
 };
+
+// const 3_4_5 = () =>{
+//     file1 = `${directory}${masterArray[i][0]} 3.pdf`;
+//     file2 = `${directory}${masterArray[i][1]} 4.pdf`;
+//     file3 = `${directory}${masterArray[i][2]} 5.pdf`;
+//     merge([file1, file2, file3], (`${masterArray[i][0]}.pdf`), (err) => {
+//         if (err)
+//             return console.log(err);
+//         console.log('Successfully merged!');
+//     });
+// }
+
+// const 3_5 = () => {
+//     file1 = `${directory}${masterArray[i][0]} 3.pdf`;
+//     file2 = `${directory}${masterArray[i][1]} 5.pdf`;
+//     merge([file1, file2], (`${masterArray[i][0]}.pdf`), (err) => {
+//         if (err)
+//             return console.log(err);
+//         console.log('Successfully merged!');
+//     });
+// }
+
+
 
 
