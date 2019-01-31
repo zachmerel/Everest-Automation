@@ -22,18 +22,27 @@ let files = fs.readdirSync(directory);
 //creates array to put edited filenames in
 let first6Array = []
 //for loop cycles through the filenames and removes everything except first 6 didgits
-for(i=0; i< files.length; i++){
-   let first6 = files[i].substring(0, 6);
-   first6Array.push(first6);
+for (i = 0; i < files.length; i++) {
+    let first6 = files[i].substring(0, 6);
+    first6Array.push(first6);
 };
 console.log(first6Array);
 
 const masterArray = [];
 
-const unique = new Set (first6Array); // Set {"141848", "142851", "143275"}
+const unique = new Set(first6Array); // Set {"141848", "142851", "143275"}
 unique.forEach(u => {
-  masterArray.push(first6Array.filter(e => e === u));
+
+    masterArray.push(first6Array.filter(e => e === u));
 });
 console.log(masterArray);
 
+for (i = 0; i < masterArray.length; i++) {
+    // merge([`${directory}${masterArray[i][0]}.pdf,${directory}${masterArray[i][1]}.pdf,${directory}${masterArray[i][2]}.pdf`] (`${masterArray[i][0]}.pdf`), (err) => {
+        merge(masterArray[i], (`${masterArray[i][0]}.pdf`), (err) => {
 
+    if (err)
+            return console.log(err);
+        console.log('Successfully merged!');
+    });
+}
