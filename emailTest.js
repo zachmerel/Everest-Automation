@@ -3,7 +3,7 @@ const merge = require('easy-pdf-merge');
 const path = require('path');
 const fs = require("fs");
 const fse = require('fs-extra');
-const loDash = require("lodash");
+const _ = require("lodash");
 
 
 
@@ -37,18 +37,42 @@ let pdfAttachments = fs.readdirSync(attachments);
 
 const pdfAttachmentsWithoutExtentensions = [];
 
+//loops through everest invoice folder and removes everything but load number
 for (i = 0; i < pdfAttachments.length; i++) {
     newFileName = pdfAttachments[i].substring(8, 14);
-    pdfAttachmentsWithoutExtentensions.push(newFileName);
+    console.log("pdfAttachments[i]", pdfAttachments[i])
+    console.log("newFileName", newFileName)
+    //renames whatever file name is in email attachments with load number only
+    // if(pdfAttachments[i].length == 6){
+    //     console.log("skip")
+    // }else{
+    //     console.log("needs to be changed")
+    // }
+    fs.rename(`${attachments}/${pdfAttachments[i]}`, `${attachments}/${newFileName}.pdf`, (err) => {
+        if (err) throw err;
+        console.log('Rename complete!');
+    });
+    // pdfAttachmentsWithoutExtentensions.push(newFileName);
     // console.log("just file name", newFileName)
 };
 // console.log(pdfAttachmentsWithoutExtentensions)
 // console.log("pdfAttachments",pdfAttachments)
 
 
-for(i=0;i<masterArray.length;i++){
+for (i = 0; i < masterArray.length; i++) {
     // console.log("first index of each array in masterArray", masterArray[i][0]);
-let test = _.intersectionWith(masterArray[i],pdfAttachmentsWithoutExtentensions, _.isEqual);
+    let test = _.intersectionWith(masterArray[i], pdfAttachmentsWithoutExtentensions, _.isEqual);
+    for (j = 0; j < test.length; j++) {
+        if (test[j] === masterArray[i][0]) {
+            // console.log("test[j]",test[j]);
+            // console.log("masterArray[i]",masterArray[i])
+            masterArray[i].push(test[j])
+            // console.log("time to push")
+        }
+    }
 
-console.log(test);
+
+    // console.log(test);
 };
+
+console.log("masterArray with invoices", masterArray);
