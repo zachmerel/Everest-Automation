@@ -22,13 +22,12 @@ for (i = 0; i < files.length; i++) {
 //declares masterArray
 const masterArray = [];
 
-const unique = new Set(first6Array); // Set {"141848", "142851", "143275"}
+//finds duplicates in first6Array then puts those duplicates in their own array and pushes to MasterArray.
+const unique = new Set(first6Array); 
 unique.forEach(u => {
-
     masterArray.push(first6Array.filter(e => e === u));
 });
 // console.log(masterArray);
-
 
 //loops through masterArray to see how many files are in each index. If 3 assign 3,4,5 and directory name , if 2 assign 3,5 and directory name.
 for (i = 0; i < masterArray.length; i++) {
@@ -79,12 +78,4 @@ for (i = 0; i < masterArray.length; i++) {
 
 
 
-for (i = 0; i < masterArray.length; i++) {
-    // merge([`${directory}${masterArray[i][0]}.pdf,${directory}${masterArray[i][1]}.pdf,${directory}${masterArray[i][2]}.pdf`] (`${masterArray[i][0]}.pdf`), (err) => {
-        merge(masterArray[i], (`${masterArray[i][0]}.pdf`), (err) => {
 
-    if (err)
-            return console.log(err);
-        console.log('Successfully merged!');
-    });
-}
