@@ -3,7 +3,7 @@ const merge = require('easy-pdf-merge');
 const path = require('path');
 const fs = require("fs");
 const fse = require('fs-extra');
-const loDash = require("lodash");
+const _ = require("lodash");
 
 
 
@@ -48,10 +48,10 @@ for (i = 0; i < masterArray.length; i++) {
     let test = _.intersectionWith(masterArray[i], pdfAttachmentsWithoutExtentensions, _.isEqual);
     for (j = 0; j < test.length; j++) {
         if (test[j] === masterArray[i][0]){
-            // console.log("test[j]",test[j]);
-            // console.log("masterArray[i]",masterArray[i])
+            console.log("test[j]",test[j]);
+            console.log("masterArray[i]",masterArray[i])
             masterArray[i].push(test[j])
-            // console.log("time to push")
+            console.log("time to push")
         }
     }
 
@@ -60,32 +60,32 @@ for (i = 0; i < masterArray.length; i++) {
 };
 
 //loops through masterArray to see how many files are in each index. If 3 assign 3,4,5 and directory name , if 2 assign 3,5 and directory name.
-for (i = 0; i < masterArray.length; i++) {
-    if (masterArray[i].length === 3) {
-        // 3_4_5();
-        file1 = `${directory}${masterArray[i][0]} 1.pdf`;
-        file2 = `${directory}${masterArray[i][1]} 3.pdf`;
-        file3 = `${directory}${masterArray[i][2]} 5.pdf`;
-        merge([file1, file2, file3], (`${masterArray[i][0]}.pdf`), (err) => {
-            if (err)
-                return console.log(err);
-            console.log('Successfully merged!');
-        });
-    }
-    else if (masterArray[i].length === 4) {
-        // 3_5();
-        file1 = `${directory}${masterArray[i][0]} 1.pdf`;
-        file2 = `${directory}${masterArray[i][0]} 3.pdf`;
-        file3 = `${directory}${masterArray[i][0]} 4.pdf`;
-        file4 = `${directory}${masterArray[i][1]} 5.pdf`;
-        merge([file1, file2,file3, file4], (`${masterArray[i][0]}.pdf`), (err) => {
-            if (err)
-                return console.log(err);
-            console.log('Successfully merged!');
-        });
-    }
+// for (i = 0; i < masterArray.length; i++) {
+//     if (masterArray[i].length === 3) {
+//         // 3_4_5();
+//         file1 = `${directory}${masterArray[i][0]} 1.pdf`;
+//         file2 = `${directory}${masterArray[i][1]} 3.pdf`;
+//         file3 = `${directory}${masterArray[i][2]} 5.pdf`;
+//         merge([file1, file2, file3], (`${masterArray[i][0]}.pdf`), (err) => {
+//             if (err)
+//                 return console.log(err);
+//             console.log('Successfully merged!');
+//         });
+//     }
+//     else if (masterArray[i].length === 4) {
+//         // 3_5();
+//         file1 = `${directory}${masterArray[i][0]} 1.pdf`;
+//         file2 = `${directory}${masterArray[i][0]} 3.pdf`;
+//         file3 = `${directory}${masterArray[i][0]} 4.pdf`;
+//         file4 = `${directory}${masterArray[i][1]} 5.pdf`;
+//         merge([file1, file2,file3, file4], (`${masterArray[i][0]}.pdf`), (err) => {
+//             if (err)
+//                 return console.log(err);
+//             console.log('Successfully merged!');
+//         });
+//     }
 
-};
+// };
 
 // const 3_4_5 = () =>{
 //     file1 = `${directory}${masterArray[i][0]} 3.pdf`;
