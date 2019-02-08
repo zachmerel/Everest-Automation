@@ -3,7 +3,7 @@ const merge = require('easy-pdf-merge');
 const path = require('path');
 const fs = require("fs");
 const fse = require('fs-extra');
-const _ = require("lodash");
+const loDash = require("lodash");
 
 
 
@@ -68,3 +68,18 @@ for (i = 0; i < pdfAttachments.length; i++) {
 // };
 
 // console.log("masterArray with invoices", masterArray);
+for (i = 0; i < pdfAttachments.length; i++) {
+    newFileName = pdfAttachments[i].substring(8, 14);
+    pdfAttachmentsWithoutExtentensions.push(newFileName);
+    // console.log("just file name", newFileName)
+};
+// console.log(pdfAttachmentsWithoutExtentensions)
+// console.log("pdfAttachments",pdfAttachments)
+
+
+for(i=0;i<masterArray.length;i++){
+    // console.log("first index of each array in masterArray", masterArray[i][0]);
+let test = _.intersectionWith(masterArray[i],pdfAttachmentsWithoutExtentensions, _.isEqual);
+
+console.log(test);
+};

@@ -29,7 +29,6 @@ unique.forEach(u => {
 });
 // console.log(masterArray);
 
-
 //loops through masterArray to see how many files are in each index. If 3 assign 3,4,5 and directory name , if 2 assign 3,5 and directory name.
 for (i = 0; i < masterArray.length; i++) {
     if (masterArray[i].length === 3) {
