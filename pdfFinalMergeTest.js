@@ -9,7 +9,7 @@ const loDash = require("lodash");
 //declaring the directory that stores everest invoices
 const everestInvoices = "K:/Email Attachments/";
 //declaring the directory that will be read and looped through (carrier invoices and BOLS)
-const directory = "C:/Automation/Everest-Automation/invoiceMergeTest/";
+const directory = "K:/MEGA/Daily Request - 30D/";
 //reads the filenames in the folder
 let files = fs.readdirSync(directory);
 //creates array to put edited filenames in
@@ -31,7 +31,8 @@ unique.forEach(u => {
 console.log(masterArray);
 
 
-// loops through masterArray to see how many files are in each index. If 3 assign 3,4,5 and directory name , if 2 assign 3,5 and directory name.
+// loops through masterArray to see how many files are in each index. If 3 assign 3,4,5 and directory name , if 2 assign 3,5 and directory name and includeds everest invoices from 
+// email attachments folder on K drive.
 for (i = 0; i < masterArray.length; i++) {
     if (masterArray[i].length === 3) {
         // 3_4_5();
