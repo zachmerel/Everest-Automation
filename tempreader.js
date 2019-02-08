@@ -14,7 +14,7 @@ for(i=0; i< files.length; i++){
     //removes the extension from file name but leaves page indicator (3 or 5)
     // let extfree = files[i].substring(0, files[i].lastIndexOf("."));
     //removes the extension from file name and page indicator (3 or 5)
-    let extfree = files[i].substring(0, 6);
+    let extfree = parseInt(files[i].substring(0, 6));
     
     
     //pushes edited file names to noExtensions array

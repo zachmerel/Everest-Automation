@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "reader": "node tempreader.js",
-    "merge":"node pdfFinalMergeTest.js",
-    "merge2":"node pdfmerge2.js"
+    "merge": "node pdfFinalMergeTest.js",
+    "merge2": "node pdfmerge2.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "fs-extra": "^7.0.1",
     "lodash": "^4.17.11",
     "path": "^0.12.7",
+    "pdf-extract": "^1.0.11",
     "xlsx": "^0.14.1"
   },
   "bin": {
