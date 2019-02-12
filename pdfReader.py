@@ -5,3 +5,4 @@ reader = PyPDF2.PdfFileReader(object)
 reader.numPages()
 
 reader.numPages
+cd 
