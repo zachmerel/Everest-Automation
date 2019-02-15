@@ -7,6 +7,7 @@ let referenceNum = [];
 Tesseract.recognize(myImage)
     .then(function (result) {
         console.log( typeof (result.text))
+        console.log(result.text)
         // testArray.push(result.text)
         let split = (result.text).split(" ")
         for(i=0; i < split.length; i++){
@@ -15,6 +16,6 @@ Tesseract.recognize(myImage)
                 console.log(split[i])
             }
         }
-        // console.log("split[0]",split[0])
+        // console.log("split[i]",split)
     })
 
