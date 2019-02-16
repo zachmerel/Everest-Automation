@@ -1,12 +1,12 @@
 const path = require('path');
 const pdf = require('pdf-poppler');
  
-let file = "./temp v1/143559 3_Page_2.png";
+let file = "./temp v1/143559_3.pdf";
  
 let opts = {
     format: 'png',
     out_dir: path.dirname(file),
-    out_prefix: path.baseName(file, path.extname(file)),
+    out_prefix: path.basename(file, path.extname(file)),
     page: null
 }
  

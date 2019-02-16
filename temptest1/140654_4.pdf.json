@@ -1,0 +1,34 @@
+{
+  "formImage": {
+    "Transcoder": "pdf2json@1.1.8 [https://github.com/modesty/pdf2json]",
+    "Agency": "PDF-Ñ—Ð°Ð¹Ð»",
+    "Id": { "AgencyId": "", "Name": "", "MC": false, "Max": 1, "Parent": "" },
+    "Pages": [
+      {
+        "Height": 49.5,
+        "HLines": [],
+        "VLines": [],
+        "Fills": [
+          { "x": 0, "y": 0, "w": 0, "h": 0, "clr": 1 },
+          { "x": 0, "y": 0, "w": 6.12, "h": 7.92, "clr": 0 }
+        ],
+        "Texts": [],
+        "Fields": [],
+        "Boxsets": []
+      },
+      {
+        "Height": 49.5,
+        "HLines": [],
+        "VLines": [],
+        "Fills": [
+          { "x": 0, "y": 0, "w": 0, "h": 0, "clr": 1 },
+          { "x": 0, "y": 0, "w": 6.12, "h": 7.92, "clr": 0 }
+        ],
+        "Texts": [],
+        "Fields": [],
+        "Boxsets": []
+      }
+    ],
+    "Width": 38.25
+  }
+}

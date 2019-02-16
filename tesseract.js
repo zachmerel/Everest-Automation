@@ -1,5 +1,6 @@
 const Tesseract = require('tesseract.js')
 
+
 let myImage = ["./temp v1/143559 3_Page_2.png", "141848_4.png"]
 let referenceNumbers = [];
 
@@ -19,3 +20,5 @@ for (i = 0; i < myImage.length; i++) {
             // console.log("split[i]",split)
         })
 };
+
+// process.exit()
