@@ -21,7 +21,7 @@ for (i = 0; i < files.length; i++) {
     let extType = fileExtension(files[i])
     // console.log("extTYpe:",extType);
     // console.log(files[i])
-    if(extType === "png"){
+    if(extType === "jpg"){
         myImage.push(files[i])
     }
 };
