@@ -2,6 +2,7 @@
 const Tesseract = require('tesseract.js')
 const fs = require("fs");
 const fileExtension = require('file-extension');
+const Jimp = require('jimp');
 
 //directory of invoices 
 let directory = "invoiceMergeTest";
@@ -12,21 +13,30 @@ let myImage = []
 let files = fs.readdirSync(directory);
 
 //function that determines if 8 didgit number is an integer (making it a true reference number)
- isInt = (n) => {
+isInt = (n) => {
     return n % 1 === 0;
- }
+}
 
 //loops through directory to find all pngs and push them to myImage array.
 for (i = 0; i < files.length; i++) {
     let extType = fileExtension(files[i])
     // console.log("extTYpe:",extType);
     // console.log(files[i])
-    if(extType === "jpg"){
+    if (extType === "png") {
         myImage.push(files[i])
     }
 };
 
-
+//increases the resolution of the convert PDFs -> JPGs
+// for (i = 0; i < myImage.length; i++) {
+//     Jimp.read((`./${directory}/${myImage[i]}`), (err, resize) => {
+//         if (err) throw err;
+//         resize
+//             .resize(3300, 1900) // resize
+//             .write(`file${myImage[i]}`); // save
+//             console.log("resized png")
+//     });
+// }
 console.log("myImage", myImage)
 //array of reference numbers that need to be checked
 let referenceNumbers = [];
@@ -38,12 +48,12 @@ for (i = 0; i < myImage.length; i++) {
             console.log(result.text)
             //splits string output of tesseract into an array
             let split = (result.text).split(" ")
-            console.log("split",split)
+            console.log("split", split)
             //loops through array to pull out reference numbers
             for (i = 0; i < split.length; i++) {
                 if (split[i].length == 8 && isInt(split[i])) {
                     referenceNumbers.push(split[i])
-                    
+
                 }
             }
             console.log("finished one doc")
