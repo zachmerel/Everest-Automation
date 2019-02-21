@@ -18,14 +18,17 @@ for (i = 0; i < files.length; i++) {
         myImage.push(files[i])
     }
 };
-
+console.log(myImage)
 for (i = 0; i < myImage.length; i++) {
-    Jimp.read(`./${directory}/${myImage[i]}`, (err, lenna) => {
-        console.log(myImage[i])
+    console.log(myImage[i])
+
+    let test = myImage[i];
+
+    Jimp.read(`./${directory}/${myImage[i]}`, (err, res) => {
         if (err) throw err;
-        lenna
+        res
             .resize(3300, 1900) // resize
             // .quality(100) // set JPEG quality
-            .write(`${myImage[i]}.png`); // save
+            .write(`./${directory}/${test}.png`); // save
     });
 }

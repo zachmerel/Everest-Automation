@@ -27,7 +27,7 @@ for (i = 0; i < files.length; i++) {
     }
 };
 
-//increases the resolution of the convert PDFs -> JPGs
+// increases the resolution of the convert PDFs -> JPGs
 // for (i = 0; i < myImage.length; i++) {
 //     Jimp.read((`./${directory}/${myImage[i]}`), (err, resize) => {
 //         if (err) throw err;
