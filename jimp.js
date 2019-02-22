@@ -3,7 +3,7 @@ const fs = require("fs");
 const fileExtension = require('file-extension');
 
 //directory of invoices 
-let directory = "invoiceMergeTest";
+let directory = "everestInvoices";
 
 // //array of pngs to be parsed
 let myImage = []
@@ -20,12 +20,12 @@ for (i = 0; i < files.length; i++) {
 };
 
 for (i = 0; i < myImage.length; i++) {
-    Jimp.read(`./${directory}/${myImage[i]}`, (err, lenna) => {
-        console.log(myImage[i])
+    let localvar = myImage[i];
+    Jimp.read(`./${directory}/${myImage[i]}`, (err, res) => {
         if (err) throw err;
-        lenna
-            .resize(3300, 1900) // resize
+        res
+            .resize(4500, 2700) // resize
             // .quality(100) // set JPEG quality
-            .write(`${myImage[i]}.png`); // save
+            .write(`./${directory}/holderFolder/${localvar}.png`); // save
     });
 }

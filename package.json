@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "reader": "node tempreader.js",
     "merge": "node pdfFinalMergeTest.js",
-    "parse": "node tesseract.js"
+    "parse": "node tesseract.js",
+    "convert": "node pdf2png.js",
+    "jimp": "node jimp.js"
   },
   "repository": {
     "type": "git",

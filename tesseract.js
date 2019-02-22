@@ -5,16 +5,22 @@ const fileExtension = require('file-extension');
 const Jimp = require('jimp');
 
 //directory of invoices 
-let directory = "invoiceMergeTest";
+let directory = "everestInvoices";
 
 // //array of pngs to be parsed
 let myImage = []
 //reads through directory 
 let files = fs.readdirSync(directory);
+// console.log(files)
 
 //function that determines if 8 didgit number is an integer (making it a true reference number)
 isInt = (n) => {
     return n % 1 === 0;
+}
+//function that removes "\n" from the split string
+
+remove = (x) => {
+    if()
 }
 
 //loops through directory to find all pngs and push them to myImage array.
@@ -26,29 +32,20 @@ for (i = 0; i < files.length; i++) {
         myImage.push(files[i])
     }
 };
-
-//increases the resolution of the convert PDFs -> JPGs
-// for (i = 0; i < myImage.length; i++) {
-//     Jimp.read((`./${directory}/${myImage[i]}`), (err, resize) => {
-//         if (err) throw err;
-//         resize
-//             .resize(3300, 1900) // resize
-//             .write(`file${myImage[i]}`); // save
-//             console.log("resized png")
-//     });
-// }
-console.log("myImage", myImage)
 //array of reference numbers that need to be checked
 let referenceNumbers = [];
 //loops through myImage array and parses png to txt files
 for (i = 0; i < myImage.length; i++) {
-    Tesseract.recognize(`./${directory}/${myImage[i]}`)
+    Tesseract.recognize(`./${directory}/holderfolder/${myImage[i]}.png`)
         .then(function (result) {
             // console.log( typeof (result.text))
             console.log(result.text)
+            console.log(typeof(result.text))
+
             //splits string output of tesseract into an array
             let split = (result.text).split(" ")
             console.log("split", split)
+            // split = split.map(w => w.replace('\n', ' '));
             //loops through array to pull out reference numbers
             for (i = 0; i < split.length; i++) {
                 if (split[i].length == 8 && isInt(split[i])) {
