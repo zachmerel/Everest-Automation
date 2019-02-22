@@ -19,9 +19,9 @@ isInt = (n) => {
 }
 //function that removes "\n" from the split string
 
-remove = (x) => {
-    if()
-}
+// remove = (x) => {
+//     if()
+// }
 
 //loops through directory to find all pngs and push them to myImage array.
 for (i = 0; i < files.length; i++) {
@@ -34,6 +34,7 @@ for (i = 0; i < files.length; i++) {
 };
 //array of reference numbers that need to be checked
 let referenceNumbers = [];
+let = lineBreakFree =[]
 //loops through myImage array and parses png to txt files
 for (i = 0; i < myImage.length; i++) {
     Tesseract.recognize(`./${directory}/holderfolder/${myImage[i]}.png`)
@@ -45,10 +46,21 @@ for (i = 0; i < myImage.length; i++) {
             //splits string output of tesseract into an array
             let split = (result.text).split(" ")
             console.log("split", split)
+            for (i = 0;i<split.length;i++){
+                if (split[i].includes("\n")) {
+                    console.log("contains line break")
+                       let linebreak = split[i].split("\n");
+                       lineBreakFree.push(linebreak);
+                    }
+                else{
+                    lineBreakFree.push(split[i])
+                }
+            }
+            console.log("new array without line breaks (\n)",lineBreakFree)
             // split = split.map(w => w.replace('\n', ' '));
             //loops through array to pull out reference numbers
-            for (i = 0; i < split.length; i++) {
-                if (split[i].length == 8 && isInt(split[i])) {
+            for (i = 0; i < lineBreakFree.length; i++) {
+                if (lineBreakFree.length == 8 && isInt(split[i])) {
                     referenceNumbers.push(split[i])
 
                 }
