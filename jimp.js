@@ -20,18 +20,6 @@ for (i = 0; i < files.length; i++) {
 };
 console.log(myImage)
 for (i = 0; i < myImage.length; i++) {
-<<<<<<< HEAD
-    console.log(myImage[i])
-
-    let test = myImage[i];
-
-    Jimp.read(`./${directory}/${myImage[i]}`, (err, res) => {
-        if (err) throw err;
-        res
-            .resize(3300, 1900) // resize
-            // .quality(100) // set JPEG quality
-            .write(`./${directory}/${test}.png`); // save
-=======
     let localvar = myImage[i];
     Jimp.read(`./${directory}/${myImage[i]}`, (err, res) => {
         if (err) throw err;
@@ -39,6 +27,5 @@ for (i = 0; i < myImage.length; i++) {
             .resize(4500, 2700) // resize
             // .quality(100) // set JPEG quality
             .write(`./${directory}/holderFolder/${localvar}.png`); // save
->>>>>>> e3c324f2c674fa4aa490532a46e98ea0a2242216
     });
 }
