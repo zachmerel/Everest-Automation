@@ -4,7 +4,7 @@ const pdf = require("pdf-poppler");
 const fs = require("fs");
 
 //directory of pdfs
-let directory = "invoiceMergeTest";
+let directory = "everestInvoices";
 
 //reads directory
 let files = fs.readdirSync(directory);
