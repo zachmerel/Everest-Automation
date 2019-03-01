@@ -9,7 +9,8 @@
     "merge": "node pdfFinalMergeTest.js",
     "parse": "node tesseract.js",
     "convert": "node pdf2png.js",
-    "jimp": "node jimp.js"
+    "jimp": "node jimp.js",
+    "browser": "node seleniumTest.js"
   },
   "repository": {
     "type": "git",
