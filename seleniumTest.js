@@ -30,20 +30,29 @@ const closeAlert = () => {
     driver.wait(until.alertIsPresent()).then(() => { driver.switchTo().alert().accept(); });
 }
 
-//switches back to main window
-const mainWindow = () => {
-    console.log("this is where we switch back to the main page")
-    driver.switchTo().defaultContent()
-}
+// //switches back to main window
+// const mainWindow = () => {
+//     console.log("this is where we switch back to the main page")
+//     driver.switchTo().defaultContent()
+// }
 
 
 const openPortal = () => {
     driver.get('https://www.budexchange.com/dana-na/auth/url_17/welcome.cgi');
+    // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 }
 
 
+async function login() {
+
+    let promise = new Promise((resolve, reject) => {
+        closeAlert();
+    });
+    let enterPassword = await promise;
+    // mainWindow();
+    enterPassword();
+}
+
 openPortal();
-closeAlert();
-mainWindow();
-enterPassword();
+login();
 
