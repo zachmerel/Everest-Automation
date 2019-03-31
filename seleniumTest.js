@@ -1,4 +1,4 @@
-// require('./.env').config
+// dependencies
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     Keys = webdriver.Key,
@@ -6,67 +6,49 @@ const webdriver = require('selenium-webdriver'),
 const chrome = require('selenium-webdriver/chrome');
 const path = require('chromedriver').path;
 
+//so I don't have to have path on computer
 const service = new chrome.ServiceBuilder(path).build();
 chrome.setDefaultService(service);
 
+//allows the use of webdriver
 var driver = new webdriver.Builder()
     .withCapabilities(webdriver.Capabilities.chrome())
     .build();
 
+
+//enters username, password, hits enter
 const enterPassword = () => {
+    console.log("this is where the password is entered")
     driver.findElement(By.name('username')).sendKeys('je773425');
     driver.findElement(By.name('password')).sendKeys('Vologda85');
     driver.findElement(By.name('cmdSubmit')).sendKeys(Keys.ENTER);
 }
 
-const closeAlert = () => {
-    driver.wait(until.alertIsPresent()).then(() => { driver.switchTo().alert().accept(); });
+//switches window to alert and accepts it
+const closeAlert = async () => {
+    console.log("this is where the alert gets closed")
+    await driver.wait(until.alertIsPresent())
+    await driver.switchTo().alert().accept();
+
 }
 
-driver.get('https://www.budexchange.com/dana-na/auth/url_17/welcome.cgi');
-closeAlert();
+//switches back to main window
+const mainWindow = () => {
+    console.log("this is where we switch back to the main page")
+    driver.switchTo().defaultContent()
+}
 
 
-
-//Open portal Promise trying to make a promise so that once the alert has been closed I'm able to enter in the password and not before then.
-const openPortal = new Promise(
-    function (resolve, reject) {
-        if(//need a call back to the close alert function to make sure its been executed?//){
-
-        }else{
-            console.log("not working")
-        }
+const openPortal = () => {
+    driver.get('https://www.budexchange.com/dana-na/auth/url_17/welcome.cgi');
+    // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+}
 
 
-        );
-// driver.wait(until.alertIsPresent()).then(() => { driver.switchTo().alert().accept(); });
-// console.log("this is the alert getting reconized and closed")
-    
-// driver.wait(until.alertIsPresent(1)).then(() => enterPassword());
-// console.log("this is when I try to pass the username and password in and press enter")
+async function login() {
+  await closeAlert();
+  await enterPassword();
+}
 
-
-
-
-
-// driver.sleep(5000)
-// enterPassword();
-// driver.findElement(By.name('username')).sendKeys('je773425');
-// driver.findElement(By.name('password')).sendKeys('Vologda85');
-// driver.findElement(By.name('cmdSubmit')).sendKeys(Keys.ENTER);
-// driver.wait(2000);
-
-
-
-// function check_title() {
-//     let promise = driver.getTitle().then( function(title){
-//         if(title === 'wiki - Google Search'){
-//             console.log('success');
-//             return true;
-//         }
-//         else{
-//             console.log('fail --' + title);
-//         }
-//     });
-//     return promise
-// }
+openPortal();
+login();
