@@ -25,16 +25,18 @@ const enterPassword = () => {
 }
 
 //switches window to alert and accepts it
-const closeAlert = () => {
+const closeAlert = async () => {
     console.log("this is where the alert gets closed")
-    driver.wait(until.alertIsPresent()).then(() => { driver.switchTo().alert().accept(); });
+    await driver.wait(until.alertIsPresent())
+    await driver.switchTo().alert().accept();
+
 }
 
-// //switches back to main window
-// const mainWindow = () => {
-//     console.log("this is where we switch back to the main page")
-//     driver.switchTo().defaultContent()
-// }
+//switches back to main window
+const mainWindow = () => {
+    console.log("this is where we switch back to the main page")
+    driver.switchTo().defaultContent()
+}
 
 
 const openPortal = () => {
@@ -42,17 +44,20 @@ const openPortal = () => {
     // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 }
 
+const app = async () => {
+  await login();
+  console.log('done');
+}
 
 async function login() {
-
-    let promise = new Promise((resolve, reject) => {
-        closeAlert();
-    });
-    let enterPassword = await promise;
-    // mainWindow();
-    enterPassword();
+  await closeAlert();
+  await enterPassword();
 }
 
 openPortal();
-login();
+
+Promise.resolve(app()).then(() => {
+  
+})
+
 
