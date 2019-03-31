@@ -44,6 +44,10 @@ const openPortal = () => {
     // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 }
 
+const app = async () => {
+  await login();
+  console.log('done');
+}
 
 async function login() {
   await closeAlert();
@@ -51,4 +55,8 @@ async function login() {
 }
 
 openPortal();
-login();
+
+Promise.resolve(app()).then(() => {
+  
+})
+
