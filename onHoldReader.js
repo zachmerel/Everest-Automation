@@ -1,4 +1,5 @@
 const fs = require("fs");
+const util = require('util')
 
 const loDash = require("lodash");
 
@@ -24,5 +25,5 @@ for(i=0; i< files.length; i++){
 };
 
 let duplicateFree = loDash.sortedUniq(noExtensions);
-console.log(duplicateFree);
+console.log(util.inspect(duplicateFree, { maxArrayLength: null }))
 
