@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "reader": "node tempreader.js",
+    "qpreader": "node qpreader.js",
     "merge": "node pdfFinalMergeTest.js",
     "parse": "node tesseract.js",
     "convert": "node pdf2png.js",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/zachmerel/Everest-Automation#readme",
   "dependencies": {
     "chromedriver": "^2.46.0",
+    "dotenv": "^7.0.0",
     "easy-pdf-merge": "^0.2.0",
     "file-extension": "^4.0.5",
     "file-saver": "^2.0.0",

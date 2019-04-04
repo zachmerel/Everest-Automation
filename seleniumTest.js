@@ -6,6 +6,7 @@ const webdriver = require('selenium-webdriver'),
 const chrome = require('selenium-webdriver/chrome');
 const path = require('chromedriver').path;
 
+
 //so I don't have to have path on computer
 const service = new chrome.ServiceBuilder(path).build();
 chrome.setDefaultService(service);
@@ -20,7 +21,7 @@ var driver = new webdriver.Builder()
 const enterPassword = () => {
     console.log("this is where the password is entered")
     driver.findElement(By.name('username')).sendKeys('je773425');
-    driver.findElement(By.name('password')).sendKeys('Vologda85');
+    driver.findElement(By.name('password')).sendKeys('Everest2019');
     driver.findElement(By.name('cmdSubmit')).sendKeys(Keys.ENTER);
 }
 
@@ -59,4 +60,3 @@ openPortal();
 Promise.resolve(app()).then(() => {
   
 })
-
