@@ -33,11 +33,16 @@ const closeAlert = async () => {
 
 }
 
-//switches back to main window
-const mainWindow = () => {
-    console.log("this is where we switch back to the main page")
-    driver.switchTo().defaultContent()
+//gets to the carrier communcation page
+const carrierCommunication = async => {
+    await driver.findElement(By.name('pPortalMenu_root_1').sendKeys(Keys.ENTER));
 }
+
+//switches back to main window
+// const mainWindow = () => {
+//     console.log("this is where we switch back to the main page")
+//     driver.switchTo().defaultContent()
+// }
 
 
 const openPortal = () => {
@@ -53,6 +58,7 @@ const app = async () => {
 async function login() {
   await closeAlert();
   await enterPassword();
+  await carrierCommunication();
 }
 
 openPortal();
