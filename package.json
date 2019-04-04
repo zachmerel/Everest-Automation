@@ -8,6 +8,7 @@
     "reader": "node tempreader.js",
     "qpreader": "node qpreader.js",
     "merge": "node pdfFinalMergeTest.js",
+    "qpmerge": "node qpmerge.js",
     "parse": "node tesseract.js",
     "convert": "node pdf2png.js",
     "jimp": "node jimp.js",
