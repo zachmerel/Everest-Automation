@@ -34,23 +34,17 @@ const closeAlert = async () => {
 }
 
 //gets to the carrier communcation page
-// const carrierCommunication = () => {
-//      driver.findElement(By.name('pPortalMenu_root_1').sendKeys(Keys.ENTER));
-// }
 const carrierCommunication = () => {
   driver.get('https://www.budexchange.com/BalanceDue/,DanaInfo=.a184C65F999JAG+BalanceDueSearch.aspx')
 }
 
-
-//switches back to main window
-// const mainWindow = () => {
-//     console.log("this is where we switch back to the main page")
-//     driver.switchTo().defaultContent()
-// }
-
-
-const openPortal = () => {
-    driver.get('https://www.budexchange.com/dana-na/auth/url_17/welcome.cgi');
+//enters in the reference number for the load
+const referenceInput = async () => {
+ await driver.findElement(By.name('txtSearchBy')).sendKeys('24343767')
+}
+//opens the portal initially
+const openPortal = async () => {
+   await driver.get('https://www.budexchange.com/dana-na/auth/url_17/welcome.cgi');
     // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 }
 
@@ -63,6 +57,7 @@ async function login() {
   await closeAlert();
   await enterPassword();
   await carrierCommunication();
+  await referenceInput();
 }
 
 openPortal();
