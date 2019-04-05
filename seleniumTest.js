@@ -41,6 +41,9 @@ const carrierCommunication = () => {
 //enters in the reference number for the load
 const referenceInput = async () => {
  await driver.findElement(By.name('txtSearchBy')).sendKeys('24343767')
+ await driver.findElement(By.name('searchButton')).sendKeys(Keys.ENTER);
+ await driver.findElement(By.name('rptBalDues:_ctl1:btnShowDetails')).sendKeys(Keys.ENTER);
+
 }
 //opens the portal initially
 const openPortal = async () => {
