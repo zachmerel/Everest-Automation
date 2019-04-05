@@ -18,11 +18,11 @@ var driver = new webdriver.Builder()
 
 
 //enters username, password, hits enter
-const enterPassword = () => {
+const enterPassword = async () => {
     console.log("this is where the password is entered")
-    driver.findElement(By.name('username')).sendKeys('je773425');
-    driver.findElement(By.name('password')).sendKeys('Everest2019');
-    driver.findElement(By.name('cmdSubmit')).sendKeys(Keys.ENTER);
+    await driver.findElement(By.name('username')).sendKeys('je773425');
+    await driver.findElement(By.name('password')).sendKeys('Everest2019');
+    await driver.findElement(By.name('cmdSubmit')).sendKeys(Keys.ENTER);
 }
 
 //switches window to alert and accepts it
@@ -34,9 +34,13 @@ const closeAlert = async () => {
 }
 
 //gets to the carrier communcation page
-const carrierCommunication = async => {
-    await driver.findElement(By.name('pPortalMenu_root_1').sendKeys(Keys.ENTER));
+// const carrierCommunication = () => {
+//      driver.findElement(By.name('pPortalMenu_root_1').sendKeys(Keys.ENTER));
+// }
+const carrierCommunication = () => {
+  driver.get('https://www.budexchange.com/BalanceDue/,DanaInfo=.a184C65F999JAG+BalanceDueSearch.aspx')
 }
+
 
 //switches back to main window
 // const mainWindow = () => {
