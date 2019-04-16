@@ -9,7 +9,7 @@
 +npm run jimp moves the png files to a holder folder where tesseract file can parse them.
 +npm run browser opens the budap carrier communication portal and enters the reference number (hard coded right now)
 
-##Order of Commands (not ready to run consecutive yet)
+### Order of Commands (not ready to run consecutive yet)
 1. npm run reader (gets list of files to check to see if invoices have already been factored on the batches excel files)
 2. npm run merge (merges all parts of factor package to one pdf)
 3. npm run convert (converts pdf to pngs)
