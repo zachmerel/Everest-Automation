@@ -54,6 +54,8 @@ for (i = 0; i < myImage.length; i++) {
                     referenceNumbers[everestInvName] = referenceNumber
                     }
                 }
+                //start code to look invoice total
+                // if( line.includes('Invoice Total: '))
             } )
             console.log(referenceNumbers)
             // console.log("split[i]",split)
