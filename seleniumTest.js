@@ -5,8 +5,9 @@ const webdriver = require('selenium-webdriver'),
     until = webdriver.until;
 const chrome = require('selenium-webdriver/chrome');
 const path = require('chromedriver').path;
+// const {referenceNumbers} = require ('./tesseract');
 
-
+// console.log('referenceNumbers from tesseract.js', referenceNumbers)
 //so I don't have to have path on computer
 const service = new chrome.ServiceBuilder(path).build();
 chrome.setDefaultService(service);

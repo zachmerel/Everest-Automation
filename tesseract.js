@@ -58,5 +58,7 @@ for (i = 0; i < myImage.length; i++) {
             console.log(referenceNumbers)
             // console.log("split[i]",split)
         })
+        //exporting referenceNumbers object so I can use them with selenium
+        module.exports = {referenceNumbers};
 };
 // process.exit()
