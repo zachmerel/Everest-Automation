@@ -8,6 +8,7 @@
     "reader": "node tempreader.js",
     "qpreader": "node qpreader.js",
     "ohreader": "node onHoldReader.js",
+    "STPWreader": "node STPWreader.js",
     "merge": "node pdfFinalMergeTest.js",
     "qpmerge": "node qpmerge.js",
     "parse": "node tesseract.js",
