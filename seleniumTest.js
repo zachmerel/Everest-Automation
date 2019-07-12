@@ -22,7 +22,7 @@ var driver = new webdriver.Builder()
 const enterPassword = async () => {
     console.log("this is where the password is entered")
     await driver.findElement(By.name('username')).sendKeys('zm473258');
-    await driver.findElement(By.name('password')).sendKeys('3v3rst2019');
+    await driver.findElement(By.name('password')).sendKeys('3v3r3st2019');
     await driver.findElement(By.name('cmdSubmit')).sendKeys(Keys.ENTER);
 }
 
